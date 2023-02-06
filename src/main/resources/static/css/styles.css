@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+/* Remove the navbar's default rounded borders and increase the bottom margin */
+.navbar {
+	height: 50px;
+	margin-bottom: 50px;
+	border-radius: 0;
+}
+
+/* Remove the jumbotron's default bottom margin */
+.banner {
+	margin-bottom: 0;
+    height: auto;
+    width: 100%;
+    /*background-image: url("templates/img/banner.jpg");*/
+    background: #fddb3a;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+	background-color: #f2f2f2;
+	padding: 25px;
+}
+
+.navbar-brand {
+    background-image: url("templates/img/Rally-Models.png");
+}
+
+.logo-image{
+    width: 46px;
+    height: 46px;
+    overflow: hidden;
+    margin-top: -6px;
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 90%;
+		max-width: 90%;
+	}
+  }
+
+.panel-heading {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.precio {
+	font-size: 18px;
+	font-weight: bold;
+	padding-top: 5px;
+}
+
+.panel-producto {
+	cursor: pointer;
+}
+
+/* Estilos para la factura */
+
+.invoice-title h2, .invoice-title h3 {
+    display: inline-block;
+}
+
+.invoice-body .table > tbody > tr > .no-line {
+    border-top: none;
+}
+
+.invoice-body .table > thead > tr > .no-line {
+    border-bottom: none;
+}
+
+.invoice-body .table > tbody > tr > .thick-line {
+    border-top: 2px solid;
+}
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.text-center {
+    font-family: "Microsport";
+
+}
+
+body {
+  background: #272727;
+  font-family: "Microsport";
+}
+
+.myNavbar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.myNavbar a {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  width: 80px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.myNavbar a:hover {
+  color: #fddb3a;
+}
+
+.form-control {
+    border: #fddb3a;
+    background: #e6e6e6;
+}
+
+input[type=text]:focus {
+    border: #fddb3a
+}
+
