@@ -19,6 +19,8 @@ public class CocheEntity {
     @Column(name = "piloto", nullable = true, length = 45)
     private String piloto;
 
+    private String image;
+
     public int getIdCoche() {
         return idCoche;
     }
@@ -51,6 +53,9 @@ public class CocheEntity {
         this.piloto = piloto;
     }
 
+    public String getImage() {
+        return image;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

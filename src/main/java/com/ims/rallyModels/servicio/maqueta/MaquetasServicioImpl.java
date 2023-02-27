@@ -1,5 +1,7 @@
-package com.ims.rallyModels.servicio;
+package com.ims.rallyModels.servicio.maqueta;
 
+import com.ims.rallyModels.modelo.CocheEntity;
+import com.ims.rallyModels.modelo.CompraEntity;
 import com.ims.rallyModels.modelo.MaquetaEntity;
 import com.ims.rallyModels.repositorio.IMaquetasRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,16 @@ public class MaquetasServicioImpl implements IMaquetasServicio {
     @Override
     public void eliminarMaquetas(Integer id) {
         repositorio.deleteById(id);
+    }
+
+    @Override
+    public List<MaquetaEntity> variosPorId(List<Integer>  ids) {
+        return repositorio.findAllById(ids);
+    }
+
+    @Override
+    public List<MaquetaEntity> productosDeUnaCompra(CompraEntity c) {
+        return repositorio.findByCompra(c);
     }
 
 }

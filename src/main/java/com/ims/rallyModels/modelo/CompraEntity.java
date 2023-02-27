@@ -1,10 +1,16 @@
 package com.ims.rallyModels.modelo;
 
+import com.ims.rallyModels.servicio.UserDetailsImpl;
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)//para la auto fecha
 @Table(name = "compra", schema = "proyecto", catalog = "")
 public class CompraEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,8 +30,37 @@ public class CompraEntity {
     @Column(name = "fk_idMetodos_Pago", nullable = false)
     private int fkIdMetodosPago;
 
+    @OneToMany
+    private List<MaquetaEntity> productos;
+    @ManyToOne
+    private UserModel usuario;
+
+    @ManyToOne
+    private MetodosPagoEntity metodoPago;
+
+    public List<MaquetaEntity> getProductos() {
+        return productos;
+    }
+
+    public MetodosPagoEntity getMetodoPago() {
+        return metodoPago;
+    }
+
+    public CompraEntity() {
+        productos = new ArrayList<>();
+        usuario = new UserDetailsImpl(usuario).getUser();
+    }
+
+    public UserModel getUsuario() {
+        return usuario;
+    }
+
     public int getIdCompra() {
         return idCompra;
+    }
+
+    public void setUsuario(UserModel usuario) {
+        this.usuario = usuario;
     }
 
     public void setIdCompra(int idCompra) {

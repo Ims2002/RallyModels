@@ -1,7 +1,6 @@
-package com.ims.rallyModels.servicio;
+package com.ims.rallyModels.servicio.maqueta;
 
-import com.ims.rallyModels.modelo.MaquetaEntity;
-import com.ims.rallyModels.modelo.UsuarioEntity;
+import com.ims.rallyModels.modelo.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -17,5 +16,9 @@ public interface IMaquetasServicio {
     public MaquetaEntity actualizarMaqueta(MaquetaEntity maqueta);
 
     public void eliminarMaquetas(Integer id);
+
+    public List<MaquetaEntity> variosPorId(List<Integer>  ids);
+
+    public List<MaquetaEntity> productosDeUnaCompra(CompraEntity c);
 
 }

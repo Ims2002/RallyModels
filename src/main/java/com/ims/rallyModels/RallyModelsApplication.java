@@ -14,9 +14,6 @@ public class RallyModelsApplication implements CommandLineRunner {
 		SpringApplication.run(RallyModelsApplication.class, args);
 	}
 
-	@Autowired
-	private IMaquetasRepositorio repositorio;
-
 	@Override
 	public void run(String... args) throws Exception {
 		/*

@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link"
-                    th:href="@{/maquetas}">Control de maquetas</a> </li>
+                    th:href="@{/public/maquetas}">Control de maquetas</a> </li>
             </ul>
 
         </div>
@@ -25,16 +25,30 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-                <h1 class="text-center">Nueva Maqueta</h1>
+                <h1 class="text-center">Edición de maquetas</h1>
                 <div class="card-body">
-                    <form th:action="@{/maquetas}" th:object="${maqueta}" method="post">
-                        <!-- la maqueta de th:object es la que le pasamos al controlador OJO LAS "s" -->
+                    <form th:action="@{/public/maquetas/{id}(id=${maqueta.idMaqueta})}" th:object="${maqueta}" method="post">
+                        <input type="hidden" th:field="*{idMaqueta}" th:value="${maqueta.idMaqueta}"/>
+                        <div class="form-group">
+                            <label>Piloto: </label>
+                            <input type="text" name="piloto" th:field="*{piloto}"
+                                   class="form-control" placeholder="Piloto: " required>
+                        </div>
+                        <div class="form-group">
+                            <label>Marca del coche: </label>
+                            <input type="text" name="marca" th:field="*{marca}"
+                                   class="form-control" placeholder="Marca coche: " required>
+                        </div>
+                        <div class="form-group">
+                            <label>Modelo del coche: </label>
+                            <input type="text" name="modelo" th:field="*{modelo}"
+                                   class="form-control" placeholder="Modelo coche: " required>
+                        </div>
                         <div class="form-group">
                             <label>Descripcion: </label>
                             <input type="text" name="descripcion" th:field="*{descripcion}"
                                    class="form-control" placeholder="Descripción de la maqueta: " required>
                         </div>
-                        <br/>
                         <div class="form-group">
                             <label>Precio: </label>
                             <input type="number" name="precio" th:field="*{precio}"
